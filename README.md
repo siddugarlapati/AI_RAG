@@ -552,10 +552,8 @@ MIT License - see [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Documentation**: [Full Docs](https://docs.example.com)
 - **Issues**: [GitHub Issues](https://github.com/yourusername/ultimate-rag-platform/issues)
-- **Discord**: [Join Community](https://discord.gg/rag)
-- **Email**: support@example.com
+- **Email**: siddugarlapati.09@gmail.com
 
 ---
 
