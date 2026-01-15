@@ -14,13 +14,16 @@ Build any RAG system in minutes. Upload any data format, choose your RAG type, a
 
 This isn't just another RAG tutorial - it's a **complete platform** that:
 
+✅ **25+ RAG Types**: From Vanilla to Advanced (Agentic, CRAG, Self-RAG, Fusion, etc.)  
+✅ **Interactive Learning**: Animated lessons teaching RAG from basics to advanced  
+✅ **Code Explorer**: View complete code for any RAG type with architecture diagrams  
 ✅ **Supports ALL Data Formats**: PDF, DOCX, TXT, CSV, JSON, Images, Audio, Video  
-✅ **4 RAG Types**: Vanilla, Agentic, Graph, Hybrid  
 ✅ **Database Integration**: Connect PostgreSQL, MySQL, MongoDB  
 ✅ **Auto Code Generation**: Get production-ready code instantly  
-✅ **Multiple LLMs**: OpenAI, Anthropic, Local models  
-✅ **Beautiful UI**: Drag-and-drop interface  
+✅ **Multiple LLMs**: OpenAI, Anthropic, Groq, Local models  
+✅ **Beautiful UI**: Drag-and-drop interface with animations  
 ✅ **Docker Ready**: One command deployment  
+✅ **Non-Technical Friendly**: Anyone can learn and build RAG systems  
 
 ---
 
@@ -38,31 +41,74 @@ Upload **any format** and the platform handles it:
 - **Video**: MP4, AVI, MOV (extracts audio + transcribes)
 - **Databases**: PostgreSQL, MySQL, MongoDB
 
-### 🤖 4 RAG Types
+### 🤖 25+ RAG Types
 
-#### 1. Vanilla RAG
-- Simple and fast
-- Perfect for basic Q&A
-- Low complexity
-- **Use case**: Documentation search, simple chatbots
+**🎯 Basic RAG (2)**
+1. **Vanilla RAG** - Simple & Fast
+2. **Parent Document** - Full Context
 
-#### 2. Agentic RAG
-- Multi-agent reasoning
-- Complex query handling
-- Multi-step thinking
-- **Use case**: Research, analysis, complex questions
+**📊 Intermediate RAG (4)**
+3. **Multi-Query** - Multiple Perspectives
+4. **Contextual Compression** - Token Optimization
+5. **Reranking** - Improved Relevance
+6. **Ensemble** - Multiple Retrievers
 
-#### 3. Graph RAG
-- Knowledge graph-based
-- Relationship queries
-- Connected data
-- **Use case**: Entity relationships, network analysis
+**🚀 Advanced RAG (7)**
+7. **Agentic RAG** - Multi-Agent Reasoning
+8. **Corrective RAG (CRAG)** - Self-Correcting
+9. **Self-RAG** - Self-Reflective
+10. **Adaptive RAG** - Dynamic Strategy
+11. **RAG Fusion** - Query Fusion
+12. **HyDE** - Hypothetical Documents
+13. **RAPTOR** - Recursive Processing
 
-#### 4. Hybrid RAG
-- Combines all approaches
-- Enterprise-grade
-- Maximum accuracy
-- **Use case**: Production applications, complex domains
+**🎨 Specialized RAG (6)**
+14. **Graph RAG** - Knowledge Graph
+15. **SQL RAG** - Database Queries
+16. **Multimodal RAG** - Text/Image/Audio/Video
+17. **Temporal RAG** - Time-Aware
+18. **Conversational RAG** - Multi-Turn
+19. **Streaming RAG** - Real-Time
+
+**🏢 Enterprise RAG (3)**
+20. **Federated RAG** - Multi-Source
+21. **Hierarchical RAG** - Multi-Level
+22. **Hybrid RAG** - Combined Approaches
+
+**⚡ Optimization RAG (2)**
+23. **Semantic Cache** - Performance
+24. **Active RAG** - User Feedback
+
+**📚 See [RAG_TYPES_GUIDE.md](RAG_TYPES_GUIDE.md) for detailed explanations!**
+
+### 🎓 Interactive Learning System
+
+**Learn RAG with Animations** (`learn.html`)
+
+- **Lesson 1**: What is RAG? (Visual comparisons, analogies)
+- **Lesson 2**: How RAG Works (3-step animated workflow)
+- **Lesson 3**: All 25+ RAG Types (Organized by category)
+- **Lesson 4**: Choose Your RAG (Interactive quiz)
+- **Lesson 5**: Build Your First RAG (Step-by-step guide)
+
+**Features:**
+- ✅ Smooth animations
+- ✅ Interactive demos
+- ✅ Personalized recommendations
+- ✅ Progress tracking
+- ✅ Mobile responsive
+
+### 💻 Code Explorer
+
+**View Complete Code** (`code-explorer.html`)
+
+- **Architecture Diagrams** for each RAG type
+- **Complete Implementation** with syntax highlighting
+- **Copy Code** with one click
+- **Generate Custom Code** with your preferences
+- **Download Projects** as ZIP files
+
+**Available for all 25+ RAG types!**
 
 ### 🎨 Code Generation
 
@@ -91,8 +137,8 @@ Generate complete, production-ready code:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/ultimate-rag-platform.git
-cd ultimate-rag-platform
+git clone https://github.com/siddugarlapati/AI_RAG.git
+cd AI_RAG
 
 # Setup environment
 cp .env.example .env
@@ -102,7 +148,9 @@ cp .env.example .env
 docker-compose up -d
 
 # Access the platform
-# Frontend: http://localhost:3000
+# Main Platform: http://localhost:3000
+# Learn RAG: http://localhost:3000/learn.html
+# Code Explorer: http://localhost:3000/code-explorer.html
 # Backend API: http://localhost:8000
 # API Docs: http://localhost:8000/docs
 ```
@@ -124,6 +172,16 @@ python -m http.server 3000
 ---
 
 ## 📖 How to Use
+
+### 🎓 For Beginners: Start with Learning
+
+1. **Visit Learn Page**: Open `http://localhost:3000/learn.html`
+2. **Go Through 5 Lessons**: Understand RAG from basics to advanced
+3. **Take the Quiz**: Get personalized RAG recommendation
+4. **View Code Examples**: Check `code-explorer.html` for implementations
+5. **Build Your First RAG**: Use the main platform
+
+### 💻 For Developers: Quick Start
 
 ### 1. Upload Data
 
@@ -210,52 +268,77 @@ python -m http.server 3000
 ```
 ultimate-rag-platform/
 ├── backend/
-│   ├── app.py                 # Main FastAPI app
+│   ├── app.py                      # Main FastAPI app
 │   ├── services/
-│   │   ├── rag_engine.py      # RAG implementations
-│   │   ├── data_processor.py  # File processing
-│   │   └── code_generator.py  # Code generation
+│   │   ├── rag_engine.py           # RAG orchestration
+│   │   ├── rag_implementations.py  # All 25+ RAG types
+│   │   ├── data_processor.py       # File processing
+│   │   └── code_generator.py       # Code generation
 │   ├── requirements.txt
 │   └── Dockerfile
 │
 ├── frontend/
-│   ├── index.html            # Main UI
-│   ├── style.css             # Styling
-│   └── app.js                # Frontend logic
+│   ├── index.html                  # Main platform UI
+│   ├── learn.html                  # Interactive learning
+│   ├── code-explorer.html          # Code viewer
+│   ├── style.css                   # Main styles
+│   ├── learn.css                   # Learning page styles
+│   ├── code-explorer.css           # Explorer styles
+│   ├── app.js                      # Main logic
+│   ├── learn.js                    # Learning logic
+│   └── code-explorer.js            # Explorer logic
 │
-├── docker-compose.yml        # Docker setup
-├── .env.example             # Environment template
-└── README.md               # This file
+├── docker-compose.yml              # Docker setup
+├── .env.example                    # Environment template
+├── LICENSE                         # MIT License
+├── README.md                       # This file
+├── RAG_TYPES_GUIDE.md             # Complete RAG guide
+└── FEATURES.md                     # All features explained
 ```
 
 ---
 
 ## 🎓 Use Cases
 
-### 1. Learning RAG
-Perfect for developers learning RAG concepts:
-- Try different RAG types
-- See how they work
-- Get production code to study
+### 1. Learning & Education
+**Perfect for students and developers:**
+- Learn RAG concepts with interactive animations
+- Try all 25+ RAG types
+- See complete code implementations
+- Build projects for learning
+- Understand production architectures
 
 ### 2. Rapid Prototyping
-Build RAG systems in minutes:
+**Build RAG systems in minutes:**
 - Upload your data
-- Test different configurations
+- Test different RAG configurations
+- Compare performance
 - Generate starter code
+- Quick POC development
 
 ### 3. Production Applications
-Enterprise-ready features:
-- Multiple RAG strategies
+**Enterprise-ready features:**
+- 25+ RAG strategies to choose from
 - Database integration
 - Scalable architecture
 - Production code generation
+- Docker deployment
 
 ### 4. Research & Experimentation
-Compare RAG approaches:
+**Compare RAG approaches:**
 - Test different models
 - Evaluate performance
+- Benchmark RAG types
 - Optimize configurations
+- Academic research
+
+### 5. Non-Technical Users
+**Anyone can build RAG:**
+- No coding required to learn
+- Interactive visual guides
+- Personalized recommendations
+- Auto code generation
+- One-click deployment
 
 ---
 
@@ -438,19 +521,32 @@ MIT License - see [LICENSE](LICENSE) file
 ## 🌟 Why This Platform?
 
 ### For Learners
-- **Hands-on Learning**: Try different RAG types
-- **Code Examples**: Get production code
-- **Best Practices**: Learn from generated code
+- **Interactive Learning**: Animations and visual guides
+- **25+ RAG Types**: Learn all major RAG approaches
+- **Code Examples**: Complete implementations
+- **Best Practices**: Production-ready patterns
+- **No Prerequisites**: Start from zero
 
 ### For Developers
-- **Rapid Development**: Build RAG in minutes
+- **Rapid Development**: Build RAG in 10 minutes
 - **Production Ready**: Get deployable code
 - **Flexible**: Support for any data format
+- **All RAG Types**: 25+ implementations
+- **Code Explorer**: View and copy any implementation
 
 ### For Enterprises
 - **Scalable**: Handle large datasets
 - **Secure**: Enterprise-grade security
 - **Customizable**: Adapt to your needs
+- **Multiple Strategies**: Choose the right RAG
+- **Production Support**: Docker, K8s ready
+
+### For Non-Technical Users
+- **Visual Learning**: Understand with animations
+- **No Coding**: Learn without writing code
+- **Guided Process**: Step-by-step instructions
+- **Auto Generation**: Platform builds code for you
+- **Simple Interface**: Drag-and-drop UI
 
 ---
 
