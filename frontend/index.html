@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate RAG Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Ultimate RAG Platform</h1>
+            <p>Build Any RAG System in Minutes</p>
+            <nav class="header-nav">
+                <a href="learn.html">🎓 Learn RAG</a>
+                <a href="code-explorer.html">💻 View Code</a>
+            </nav>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('upload')">Upload Data</button>
+            <button class="tab" onclick="showTab('database')">Connect Database</button>
+            <button class="tab" onclick="showTab('query')">Query</button>
+            <button class="tab" onclick="showTab('code')">Generate Code</button>
+        </div>
+
+        <!-- Upload Tab -->
+        <div id="upload-tab" class="tab-content active">
+            <h2>Upload Your Data</h2>
+            <p>Supports: PDF, DOCX, TXT, CSV, JSON, Images, Audio, Video</p>
+            
+            <div class="upload-area" id="dropZone">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p>Drag & drop files here or click to browse</p>
+                <input type="file" id="fileInput" multiple hidden>
+            </div>
+
+            <div id="fileList"></div>
+
+            <div class="config-section">
+                <h3>RAG Configuration</h3>
+                
+                <div class="form-group">
+                    <label>RAG Type:</label>
+                    <select id="ragType">
+                        <optgroup label="🎯 Basic RAG">
+                            <option value="vanilla">Vanilla RAG - Simple & Fast</option>
+                            <option value="parent_document">Parent Document - Full Context</option>
+                        </optgroup>
+                        <optgroup label="📊 Intermediate RAG">
+                            <option value="multi_query">Multi-Query - Multiple Perspectives</option>
+                            <option value="contextual_compression">Contextual Compression - Token Optimization</option>
+                            <option value="reranking">Reranking - Improved Relevance</option>
+                            <option value="ensemble">Ensemble - Multiple Retrievers</option>
+                        </optgroup>
+                        <optgroup label="🚀 Advanced RAG">
+                            <option value="agentic">Agentic RAG - Multi-Agent Reasoning</option>
+                            <option value="corrective">Corrective RAG (CRAG) - Self-Correcting</option>
+                            <option value="self_rag">Self-RAG - Self-Reflective</option>
+                            <option value="adaptive">Adaptive RAG - Dynamic Strategy</option>
+                            <option value="fusion">RAG Fusion - Query Fusion</option>
+                            <option value="hyde">HyDE - Hypothetical Documents</option>
+                            <option value="raptor">RAPTOR - Recursive Processing</option>
+                        </optgroup>
+                        <optgroup label="🎨 Specialized RAG">
+                            <option value="graph">Graph RAG - Knowledge Graph</option>
+                            <option value="sql">SQL RAG - Database Queries</option>
+                            <option value="multimodal">Multimodal RAG - Text/Image/Audio/Video</option>
+                            <option value="temporal">Temporal RAG - Time-Aware</option>
+                            <option value="conversational">Conversational RAG - Multi-Turn</option>
+                            <option value="streaming">Streaming RAG - Real-Time</option>
+                        </optgroup>
+                        <optgroup label="🏢 Enterprise RAG">
+                            <option value="federated">Federated RAG - Multi-Source</option>
+                            <option value="hierarchical">Hierarchical RAG - Multi-Level</option>
+                            <option value="hybrid">Hybrid RAG - Combined Approaches</option>
+                        </optgroup>
+                        <optgroup label="⚡ Optimization RAG">
+                            <option value="semantic_cache">Semantic Cache - Performance</option>
+                            <option value="active_rag">Active RAG - User Feedback</option>
+                        </optgroup>
+                    </select>
+                    <div id="ragDescription" class="description"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Model:</label>
+                    <select id="modelName">
+                        <optgroup label="OpenAI">
+                            <option value="gpt-4">GPT-4</option>
+                            <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                        </optgroup>
+                        <optgroup label="Anthropic">
+                            <option value="claude-3-opus">Claude 3 Opus</option>
+                            <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                        </optgroup>
+                        <optgroup label="Local">
+                            <option value="llama-3">Llama 3</option>
+                            <option value="mistral">Mistral</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Embedding Model:</label>
+                    <select id="embeddingModel">
+                        <option value="openai">OpenAI Embeddings</option>
+                        <option value="huggingface">HuggingFace</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Chunk Size: <span id="chunkSizeValue">1000</span></label>
+                    <input type="range" id="chunkSize" min="100" max="2000" value="1000" step="100">
+                </div>
+
+                <button class="btn-primary" onclick="uploadFiles()">Create RAG System</button>
+            </div>
+        </div>
+
+        <!-- Database Tab -->
+        <div id="database-tab" class="tab-content">
+            <h2>Connect to Database</h2>
+            
+            <div class="form-group">
+                <label>Database Type:</label>
+                <select id="dbType">
+                    <option value="postgres">PostgreSQL</option>
+                    <option value="mysql">MySQL</option>
+                    <option value="mongodb">MongoDB</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Connection String:</label>
+                <input type="text" id="connectionString" placeholder="postgresql://user:pass@localhost:5432/db">
+            </div>
+
+            <div class="form-group">
+                <label>Tables (comma-separated, leave empty for all):</label>
+                <input type="text" id="tables" placeholder="users, products, orders">
+            </div>
+
+            <button class="btn-primary" onclick="connectDatabase()">Connect & Create RAG</button>
+        </div>
+
+        <!-- Query Tab -->
+        <div id="query-tab" class="tab-content">
+            <h2>Query Your RAG System</h2>
+            
+            <div class="form-group">
+                <label>Session ID:</label>
+                <input type="text" id="sessionId" placeholder="Enter session ID from upload">
+            </div>
+
+            <div class="query-box">
+                <textarea id="queryInput" placeholder="Ask anything about your data..."></textarea>
+                <button class="btn-primary" onclick="queryRAG()">Ask Question</button>
+            </div>
+
+            <div id="response" class="response-box"></div>
+        </div>
+
+        <!-- Code Generation Tab -->
+        <div id="code-tab" class="tab-content">
+            <h2>Generate Production Code</h2>
+            
+            <div class="form-group">
+                <label>Session ID:</label>
+                <input type="text" id="codeSessionId" placeholder="Enter session ID">
+            </div>
+
+            <div class="form-group">
+                <label>Language:</label>
+                <select id="language">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="includeFrontend">
+                    Include Frontend (React)
+                </label>
+            </div>
+
+            <button class="btn-primary" onclick="generateCode()">Generate & Download Code</button>
+
+            <div class="code-preview">
+                <h3>What You'll Get:</h3>
+                <ul>
+                    <li>✅ Complete RAG implementation</li>
+                    <li>✅ FastAPI backend</li>
+                    <li>✅ Docker configuration</li>
+                    <li>✅ Environment setup</li>
+                    <li>✅ README with instructions</li>
+                    <li>✅ Production-ready code</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

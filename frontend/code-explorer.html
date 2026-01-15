@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explorer - View RAG Implementations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="code-explorer.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💻 Code Explorer</h1>
+            <p>View complete code for any RAG type</p>
+            <nav class="header-nav">
+                <a href="learn.html">← Learn RAG</a>
+                <a href="index.html">Build RAG →</a>
+            </nav>
+        </header>
+
+        <div class="explorer-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>RAG Types</h3>
+                
+                <div class="rag-category">
+                    <div class="category-header">🎯 Basic</div>
+                    <div class="rag-item" onclick="showCode('vanilla')">Vanilla RAG</div>
+                    <div class="rag-item" onclick="showCode('parent_document')">Parent Document</div>
+                </div>
+
+                <div class="rag-category">
+                    <div class="category-header">📊 Intermediate</div>
+                    <div class="rag-item" onclick="showCode('multi_query')">Multi-Query</div>
+                    <div class="rag-item" onclick="showCode('contextual_compression')">Contextual Compression</div>
+                    <div class="rag-item" onclick="showCode('reranking')">Reranking</div>
+                    <div class="rag-item" onclick="showCode('ensemble')">Ensemble</div>
+                </div>
+
+                <div class="rag-category">
+                    <div class="category-header">🚀 Advanced</div>
+                    <div class="rag-item" onclick="showCode('agentic')">Agentic RAG</div>
+                    <div class="rag-item" onclick="showCode('corrective')">Corrective RAG</div>
+                    <div class="rag-item" onclick="showCode('self_rag')">Self-RAG</div>
+                    <div class="rag-item" onclick="showCode('adaptive')">Adaptive RAG</div>
+                    <div class="rag-item" onclick="showCode('fusion')">RAG Fusion</div>
+                    <div class="rag-item" onclick="showCode('hyde')">HyDE</div>
+                    <div class="rag-item" onclick="showCode('raptor')">RAPTOR</div>
+                </div>
+
+                <div class="rag-category">
+                    <div class="category-header">🎨 Specialized</div>
+                    <div class="rag-item" onclick="showCode('graph')">Graph RAG</div>
+                    <div class="rag-item" onclick="showCode('sql')">SQL RAG</div>
+                    <div class="rag-item" onclick="showCode('multimodal')">Multimodal</div>
+                    <div class="rag-item" onclick="showCode('temporal')">Temporal</div>
+                    <div class="rag-item" onclick="showCode('conversational')">Conversational</div>
+                    <div class="rag-item" onclick="showCode('streaming')">Streaming</div>
+                </div>
+
+                <div class="rag-category">
+                    <div class="category-header">🏢 Enterprise</div>
+                    <div class="rag-item" onclick="showCode('federated')">Federated</div>
+                    <div class="rag-item" onclick="showCode('hierarchical')">Hierarchical</div>
+                    <div class="rag-item" onclick="showCode('hybrid')">Hybrid</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div id="code-view">
+                    <div class="welcome-screen">
+                        <div class="welcome-icon">👈</div>
+                        <h2>Select a RAG Type</h2>
+                        <p>Choose any RAG type from the sidebar to view its complete implementation</p>
+                        <div class="welcome-features">
+                            <div class="feature">
+                                <span class="feature-icon">📖</span>
+                                <span>View complete code</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🏗️</span>
+                                <span>See architecture</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">⚙️</span>
+                                <span>Generate custom code</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">📥</span>
+                                <span>Download project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="code-explorer.js"></script>
+</body>
+</html>

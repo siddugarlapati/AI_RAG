@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn RAG - Interactive Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="learn.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Learn RAG - Interactive Guide</h1>
+            <p>Understand RAG from basics to advanced</p>
+            <nav class="header-nav">
+                <a href="index.html">← Back to Platform</a>
+                <a href="code-explorer.html">View Code Examples →</a>
+            </nav>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+            <button class="lesson-btn active" onclick="showLesson(1)">1. What is RAG?</button>
+            <button class="lesson-btn" onclick="showLesson(2)">2. How RAG Works</button>
+            <button class="lesson-btn" onclick="showLesson(3)">3. RAG Types</button>
+            <button class="lesson-btn" onclick="showLesson(4)">4. Choose Your RAG</button>
+            <button class="lesson-btn" onclick="showLesson(5)">5. Build Your First RAG</button>
+        </div>
+
+        <!-- Lesson 1: What is RAG? -->
+        <div id="lesson-1" class="lesson active">
+            <h2>🤔 What is RAG?</h2>
+            
+            <div class="explanation-box">
+                <h3>RAG = Retrieval-Augmented Generation</h3>
+                <p class="big-text">Think of RAG as giving AI a <strong>smart library</strong> to look things up before answering!</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card bad">
+                    <h4>❌ Without RAG</h4>
+                    <div class="animation-box">
+                        <div class="ai-icon">🤖</div>
+                        <div class="thought-bubble">I only know what I was trained on...</div>
+                    </div>
+                    <ul>
+                        <li>Limited to training data</li>
+                        <li>Can't access new information</li>
+                        <li>May hallucinate facts</li>
+                        <li>No company-specific knowledge</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card good">
+                    <h4>✅ With RAG</h4>
+                    <div class="animation-box">
+                        <div class="ai-icon">🤖</div>
+                        <div class="library-icon">📚</div>
+                        <div class="arrow">→</div>
+                        <div class="thought-bubble">Let me check the documents first!</div>
+                    </div>
+                    <ul>
+                        <li>Access to your documents</li>
+                        <li>Always up-to-date information</li>
+                        <li>Factual, grounded answers</li>
+                        <li>Company-specific knowledge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="analogy-box">
+                <h3>🎯 Simple Analogy</h3>
+                <div class="analogy-content">
+                    <div class="analogy-item">
+                        <span class="emoji">👨‍🎓</span>
+                        <p><strong>Student without notes</strong><br>Relies only on memory</p>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="analogy-item">
+                        <span class="emoji">👨‍💼</span>
+                        <p><strong>Professional with library</strong><br>Looks up information before answering</p>
+                    </div>
+                </div>
+                <p class="analogy-conclusion">RAG is like giving AI access to a library!</p>
+            </div>
+
+            <button class="next-btn" onclick="showLesson(2)">Next: How RAG Works →</button>
+        </div>
+
+        <!-- Lesson 2: How RAG Works -->
+        <div id="lesson-2" class="lesson">
+            <h2>⚙️ How RAG Works</h2>
+
+            <div class="explanation-box">
+                <h3>The 3-Step Process</h3>
+            </div>
+
+            <div class="workflow-animation">
+                <div class="workflow-step" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>📥 Index Your Data</h4>
+                        <div class="animation-container">
+                            <div class="document">📄 Document</div>
+                            <div class="arrow-down">↓</div>
+                            <div class="chunks">
+                                <span class="chunk">Chunk 1</span>
+                                <span class="chunk">Chunk 2</span>
+                                <span class="chunk">Chunk 3</span>
+                            </div>
+                            <div class="arrow-down">↓</div>
+                            <div class="embeddings">🔢 Vector Embeddings</div>
+                            <div class="arrow-down">↓</div>
+                            <div class="database">🗄️ Vector Database</div>
+                        </div>
+                        <p>Break documents into chunks and convert to numbers (embeddings)</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>🔍 Retrieve Relevant Info</h4>
+                        <div class="animation-container">
+                            <div class="query">❓ User Question</div>
+                            <div class="arrow-down">↓</div>
+                            <div class="search">🔍 Search Vector DB</div>
+                            <div class="arrow-down">↓</div>
+                            <div class="results">
+                                <span class="result">📄 Result 1</span>
+                                <span class="result">📄 Result 2</span>
+                                <span class="result">📄 Result 3</span>
+                            </div>
+                        </div>
+                        <p>Find the most relevant chunks for the question</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>✨ Generate Answer</h4>
+                        <div class="animation-container">
+                            <div class="context-box">
+                                <div>📄 Retrieved Context</div>
+                                <div>+</div>
+                                <div>❓ User Question</div>
+                            </div>
+                            <div class="arrow-down">↓</div>
+                            <div class="llm">🤖 Large Language Model</div>
+                            <div class="arrow-down">↓</div>
+                            <div class="answer">💬 Accurate Answer</div>
+                        </div>
+                        <p>Combine context with question to generate accurate answer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>🎮 Try It Yourself!</h3>
+                <div class="demo-box">
+                    <div class="demo-input">
+                        <label>Your Question:</label>
+                        <input type="text" id="demoQuestion" placeholder="What is machine learning?" value="What is machine learning?">
+                    </div>
+                    <button onclick="runDemo()" class="demo-btn">Run RAG Process</button>
+                    
+                    <div id="demoOutput" class="demo-output" style="display:none;">
+                        <div class="demo-stage">
+                            <strong>Step 1:</strong> Converting question to vector... ✓
+                        </div>
+                        <div class="demo-stage">
+                            <strong>Step 2:</strong> Searching 10,000 documents... ✓
+                        </div>
+                        <div class="demo-stage">
+                            <strong>Step 3:</strong> Found 5 relevant chunks ✓
+                        </div>
+                        <div class="demo-stage">
+                            <strong>Step 4:</strong> Generating answer... ✓
+                        </div>
+                        <div class="demo-result">
+                            <strong>Answer:</strong> Machine learning is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="prev-btn" onclick="showLesson(1)">← Previous</button>
+                <button class="next-btn" onclick="showLesson(3)">Next: RAG Types →</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3: RAG Types -->
+        <div id="lesson-3" class="lesson">
+            <h2>🎨 Different Types of RAG</h2>
+
+            <div class="explanation-box">
+                <h3>25+ RAG Types Explained Simply</h3>
+                <p>Each type is designed for specific use cases. Let's explore them!</p>
+            </div>
+
+            <div class="rag-categories">
+                <!-- Basic RAG -->
+                <div class="category-section">
+                    <h3 class="category-title">🎯 Basic RAG - Start Here!</h3>
+                    
+                    <div class="rag-type-card" onclick="showRAGDetail('vanilla')">
+                        <div class="rag-icon">🍦</div>
+                        <h4>Vanilla RAG</h4>
+                        <p class="rag-tagline">Simple & Fast</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Question</span> → 
+                            <span class="visual-step">Search</span> → 
+                            <span class="visual-step">Answer</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Documentation, FAQs, Simple Q&A
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('parent_document')">
+                        <div class="rag-icon">📄</div>
+                        <h4>Parent Document RAG</h4>
+                        <p class="rag-tagline">Full Context</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Small Chunk</span> → 
+                            <span class="visual-step">Find</span> → 
+                            <span class="visual-step">Return Full Doc</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Legal docs, Medical records
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐</div>
+                    </div>
+                </div>
+
+                <!-- Intermediate RAG -->
+                <div class="category-section">
+                    <h3 class="category-title">📊 Intermediate RAG - Better Results</h3>
+                    
+                    <div class="rag-type-card" onclick="showRAGDetail('multi_query')">
+                        <div class="rag-icon">🔄</div>
+                        <h4>Multi-Query RAG</h4>
+                        <p class="rag-tagline">Multiple Angles</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">1 Question</span> → 
+                            <span class="visual-step">3 Variations</span> → 
+                            <span class="visual-step">Best Answer</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Research, Complex questions
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('reranking')">
+                        <div class="rag-icon">🎯</div>
+                        <h4>Reranking RAG</h4>
+                        <p class="rag-tagline">Precision First</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Get 20</span> → 
+                            <span class="visual-step">Rerank</span> → 
+                            <span class="visual-step">Top 5</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> High accuracy needs
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐</div>
+                    </div>
+                </div>
+
+                <!-- Advanced RAG -->
+                <div class="category-section">
+                    <h3 class="category-title">🚀 Advanced RAG - Maximum Power</h3>
+                    
+                    <div class="rag-type-card" onclick="showRAGDetail('agentic')">
+                        <div class="rag-icon">🤖</div>
+                        <h4>Agentic RAG</h4>
+                        <p class="rag-tagline">AI Agents Think</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Analyze</span> → 
+                            <span class="visual-step">Plan</span> → 
+                            <span class="visual-step">Execute</span> → 
+                            <span class="visual-step">Verify</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Complex reasoning, Multi-step
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('corrective')">
+                        <div class="rag-icon">✅</div>
+                        <h4>Corrective RAG</h4>
+                        <p class="rag-tagline">Self-Correcting</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Search</span> → 
+                            <span class="visual-step">Grade</span> → 
+                            <span class="visual-step">Web if Bad</span> → 
+                            <span class="visual-step">Answer</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Accuracy-critical apps
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('fusion')">
+                        <div class="rag-icon">🔀</div>
+                        <h4>RAG Fusion</h4>
+                        <p class="rag-tagline">Combine Results</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Multi Query</span> → 
+                            <span class="visual-step">Rank Fusion</span> → 
+                            <span class="visual-step">Best Results</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Comprehensive search
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <!-- Specialized RAG -->
+                <div class="category-section">
+                    <h3 class="category-title">🎨 Specialized RAG - Specific Needs</h3>
+                    
+                    <div class="rag-type-card" onclick="showRAGDetail('graph')">
+                        <div class="rag-icon">🕸️</div>
+                        <h4>Graph RAG</h4>
+                        <p class="rag-tagline">Relationships Matter</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Build Graph</span> → 
+                            <span class="visual-step">Traverse</span> → 
+                            <span class="visual-step">Connected Answer</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Networks, Relationships
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('multimodal')">
+                        <div class="rag-icon">🎭</div>
+                        <h4>Multimodal RAG</h4>
+                        <p class="rag-tagline">All Media Types</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Text+Image+Audio+Video</span> → 
+                            <span class="visual-step">Unified Search</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Rich media content
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="rag-type-card" onclick="showRAGDetail('conversational')">
+                        <div class="rag-icon">💬</div>
+                        <h4>Conversational RAG</h4>
+                        <p class="rag-tagline">Chat Memory</p>
+                        <div class="rag-visual">
+                            <span class="visual-step">Remember Context</span> → 
+                            <span class="visual-step">Natural Chat</span>
+                        </div>
+                        <div class="use-case">
+                            <strong>Best for:</strong> Chatbots, Assistants
+                        </div>
+                        <div class="difficulty">Difficulty: ⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="prev-btn" onclick="showLesson(2)">← Previous</button>
+                <button class="next-btn" onclick="showLesson(4)">Next: Choose Your RAG →</button>
+            </div>
+        </div>
+
+        <!-- Lesson 4: Choose Your RAG -->
+        <div id="lesson-4" class="lesson">
+            <h2>🎯 Which RAG Should You Use?</h2>
+
+            <div class="explanation-box">
+                <h3>Answer These Questions</h3>
+                <p>We'll recommend the perfect RAG type for you!</p>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h4>1. What's your use case?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="usecase" value="simple">
+                            <span>Simple Q&A / Documentation</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="usecase" value="research">
+                            <span>Research / Analysis</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="usecase" value="chatbot">
+                            <span>Chatbot / Assistant</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="usecase" value="enterprise">
+                            <span>Enterprise / Mission-Critical</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>2. What's your data type?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="datatype" value="text">
+                            <span>Text Documents</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="datatype" value="database">
+                            <span>Database / Structured Data</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="datatype" value="media">
+                            <span>Images / Audio / Video</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="datatype" value="mixed">
+                            <span>Mixed / Everything</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>3. What's most important?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="priority" value="speed">
+                            <span>Speed / Low Cost</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="priority" value="accuracy">
+                            <span>Accuracy / Quality</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="priority" value="comprehensive">
+                            <span>Comprehensive Results</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="priority" value="reasoning">
+                            <span>Complex Reasoning</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="quiz-submit" onclick="getRecommendation()">Get My Recommendation</button>
+
+                <div id="recommendation" class="recommendation-box" style="display:none;">
+                    <!-- Recommendation will be inserted here -->
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="prev-btn" onclick="showLesson(3)">← Previous</button>
+                <button class="next-btn" onclick="showLesson(5)">Next: Build Your RAG →</button>
+            </div>
+        </div>
+
+        <!-- Lesson 5: Build Your First RAG -->
+        <div id="lesson-5" class="lesson">
+            <h2>🛠️ Build Your First RAG</h2>
+
+            <div class="explanation-box">
+                <h3>Ready to Build?</h3>
+                <p>Follow these simple steps to create your RAG system!</p>
+            </div>
+
+            <div class="build-steps">
+                <div class="build-step">
+                    <div class="build-number">1</div>
+                    <div class="build-content">
+                        <h4>Prepare Your Data</h4>
+                        <ul>
+                            <li>Collect your documents (PDF, DOCX, TXT, etc.)</li>
+                            <li>Or prepare database connection</li>
+                            <li>Make sure data is clean and organized</li>
+                        </ul>
+                        <div class="tip-box">
+                            <strong>💡 Tip:</strong> Start with 10-20 documents for testing
+                        </div>
+                    </div>
+                </div>
+
+                <div class="build-step">
+                    <div class="build-number">2</div>
+                    <div class="build-content">
+                        <h4>Choose Your RAG Type</h4>
+                        <ul>
+                            <li>Beginners: Start with Vanilla RAG</li>
+                            <li>Need accuracy: Use Reranking RAG</li>
+                            <li>Complex queries: Try Agentic RAG</li>
+                            <li>Not sure: Use the quiz from previous lesson!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="build-step">
+                    <div class="build-number">3</div>
+                    <div class="build-content">
+                        <h4>Upload & Configure</h4>
+                        <ul>
+                            <li>Go to the main platform</li>
+                            <li>Upload your files</li>
+                            <li>Select RAG type and model</li>
+                            <li>Click "Create RAG System"</li>
+                        </ul>
+                        <button class="action-btn" onclick="window.location.href='index.html'">
+                            Go to Platform →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="build-step">
+                    <div class="build-number">4</div>
+                    <div class="build-content">
+                        <h4>Test & Iterate</h4>
+                        <ul>
+                            <li>Ask test questions</li>
+                            <li>Check answer quality</li>
+                            <li>Adjust configuration if needed</li>
+                            <li>Try different RAG types</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="build-step">
+                    <div class="build-number">5</div>
+                    <div class="build-content">
+                        <h4>Generate Code & Deploy</h4>
+                        <ul>
+                            <li>Generate production code</li>
+                            <li>Download the ZIP file</li>
+                            <li>Follow README instructions</li>
+                            <li>Deploy to your server</li>
+                        </ul>
+                        <button class="action-btn" onclick="window.location.href='code-explorer.html'">
+                            View Code Examples →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h3>🎉 You're Ready!</h3>
+                <p>You now understand RAG and how to build your own system.</p>
+                <div class="action-buttons">
+                    <button class="primary-action" onclick="window.location.href='index.html'">
+                        Start Building →
+                    </button>
+                    <button class="secondary-action" onclick="window.location.href='code-explorer.html'">
+                        Explore Code
+                    </button>
+                    <button class="secondary-action" onclick="showLesson(1)">
+                        Review Lessons
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="prev-btn" onclick="showLesson(4)">← Previous</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAG Detail Modal -->
+    <div id="ragModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="learn.js"></script>
+</body>
+</html>
